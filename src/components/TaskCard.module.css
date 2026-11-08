@@ -1,0 +1,214 @@
+/* Task Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.cardDone {
+  opacity: 0.7;
+}
+
+.cardOverdue {
+  border-left: 3px solid var(--priority-high);
+}
+
+/* Priority stripe */
+.stripe {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+
+/* Checkbox */
+.checkboxWrap {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), border-color var(--transition);
+  background: var(--surface);
+  font-size: 11px;
+}
+
+.checkbox:hover {
+  border-color: var(--primary);
+}
+
+.checkboxChecked {
+  background: var(--status-done);
+  border-color: var(--status-done);
+  color: white;
+}
+
+/* Body */
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.titleDone {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Priority badge */
+.priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.priorityHigh   { background: var(--priority-high-bg);   color: var(--priority-high);   border: 1px solid var(--priority-high-border); }
+.priorityMedium { background: var(--priority-medium-bg); color: var(--priority-medium); border: 1px solid var(--priority-medium-border); }
+.priorityLow    { background: var(--priority-low-bg);    color: var(--priority-low);    border: 1px solid var(--priority-low-border); }
+
+/* Status badge */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Due date */
+.due {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.dueOverdue {
+  color: var(--status-overdue);
+  font-weight: 600;
+}
+
+.dueToday {
+  color: var(--priority-medium);
+  font-weight: 600;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card:hover .actions,
+.card:focus-within .actions {
+  opacity: 1;
+}
+
+.actionBtn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: background var(--transition), color var(--transition);
+  color: var(--text-secondary);
+}
+
+.actionBtn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.deleteBtn:hover {
+  background: var(--priority-high-bg);
+  color: var(--priority-high);
+}
+
+/* Status select */
+.statusSelect {
+  font-size: 11px;
+  font-family: var(--font);
+  padding: 2px 20px 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+}
+
